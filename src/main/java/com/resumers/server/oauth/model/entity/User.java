@@ -50,4 +50,12 @@ public class User extends BaseEntity {
     @OneToOne
     @JoinColumn(name="user_id")
     private UserDetail userDetail;
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserTag> userTags = new LinkedHashSet<>();
+
+    @ManyToMany
+    @JoinTable(name = "user_role",
+            joinColumns =  @JoinColumn(name ="user_id"), inverseJoinColumns= @JoinColumn(name="role_id"))
+    private Set<Role> roles = new LinkedHashSet<>();
 }
