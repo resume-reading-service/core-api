@@ -1,7 +1,6 @@
 package com.resumers.server.oauth.model.entity;
 
-import com.resumers.oauth.enums.UserStatusType;
-import org.springframework.core.annotation.Order;
+import com.resumers.server.oauth.enums.UserStatusType;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
@@ -10,7 +9,6 @@ import java.util.Set;
 /**
  * Created by sehajyang
  * DateTime : 2020/10/03
- * Descrpition :
  */
 
 @Entity
@@ -31,10 +29,25 @@ public class User extends BaseEntity {
 
     @Column(length = 1000)
     private String description;
+
+    @Enumerated(EnumType.STRING)
     private UserStatusType status;
     private Long level;
 
-    @OrderBy("userCompanyMappingId asc")
+    @OrderBy("userCompanyId asc")
     @OneToMany(mappedBy = "user")
-    private Set<UserCompanyMapping> userCompanyMappings = new LinkedHashSet<>();
+    private Set<UserCompany> userCompanies = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserResumeLike> userResumeLikes = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserResumeView> userResumeViews = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<UserSocial> userSocials = new LinkedHashSet<>();
+
+    @OneToOne
+    @JoinColumn(name="user_id")
+    private UserDetail userDetail;
 }
