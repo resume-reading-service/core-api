@@ -1,6 +1,7 @@
 package com.resumers.server.oauth.model.entity;
 
-import com.resumers.oauth.enums.CertifiedType;
+import com.resumers.server.oauth.enums.CertifiedStatus;
+import com.resumers.server.oauth.enums.CertifiedType;
 
 import javax.persistence.*;
 
@@ -20,4 +21,14 @@ public class Certified extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private CertifiedType certifiedType;
+
+    private String email;
+    private String phoneNumber;
+
+    @Enumerated(EnumType.STRING)
+    private CertifiedStatus certifiedStatus;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 }

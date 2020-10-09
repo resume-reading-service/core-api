@@ -5,7 +5,6 @@ import javax.persistence.*;
 /**
  * Created by sehajyang
  * DateTime : 2020/10/03
- * Descrpition :
  */
 
 @Table
