@@ -11,13 +11,13 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "certified")
-public class Certified extends BaseEntity {
+@Table(name = "certify")
+public class Certify extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="certified_id")
-    private Long certifiedId;
+    @Column(name="certify_id")
+    private Long certifyId;
 
     @Enumerated(EnumType.STRING)
     private CertifiedType certifiedType;
@@ -31,4 +31,5 @@ public class Certified extends BaseEntity {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
+
 }

@@ -21,7 +21,4 @@ public class File extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long fileId;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 }
