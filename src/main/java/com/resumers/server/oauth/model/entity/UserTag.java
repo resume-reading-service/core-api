@@ -16,11 +16,11 @@ public class UserTag {
     @Column(name="user_tag_id")
     private Long userTagId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="tag_id")
     private Tag tag;
 }

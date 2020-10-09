@@ -44,17 +44,17 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private Set<UserResumeView> userResumeViews = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
     private Set<UserSocial> userSocials = new LinkedHashSet<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private UserDetail userDetail;
 
     @OneToMany(mappedBy = "user")
     private Set<UserTag> userTags = new LinkedHashSet<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_role",
             joinColumns =  @JoinColumn(name ="user_id"), inverseJoinColumns= @JoinColumn(name="role_id"))
     private Set<Role> roles = new LinkedHashSet<>();

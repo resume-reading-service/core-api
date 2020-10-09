@@ -7,8 +7,8 @@ import javax.persistence.*;
  * DateTime : 2020/10/09
  */
 
-@Table
 @Entity
+@Table(name="user_detail")
 public class UserDetail extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

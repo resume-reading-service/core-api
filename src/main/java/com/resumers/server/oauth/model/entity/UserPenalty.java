@@ -18,11 +18,11 @@ public class UserPenalty extends BaseEntity {
     @Column(name = "user_penalty_id")
     private Long userPenaltyId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="penalty_id")
     private Penalty penalty;
 

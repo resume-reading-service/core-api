@@ -15,7 +15,7 @@ public class UserResumeLike {
     @Column(name = "user_resume_like_id")
     private Long userResumeLikeId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

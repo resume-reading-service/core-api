@@ -15,7 +15,7 @@ public class UserResumeView {
     @Column(name = "user_resume_view_id")
     private Long userResumeViewId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

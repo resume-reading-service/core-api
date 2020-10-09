@@ -5,5 +5,5 @@ package com.resumers.server.oauth.model.entity;
  * DateTime : 2020/10/09
  * Descrpition :
  */
-public class UserCaterory {
+public class UserCategory {
 }

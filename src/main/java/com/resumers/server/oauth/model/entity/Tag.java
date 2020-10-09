@@ -19,6 +19,9 @@ public class Tag {
     private Long TagId;
 
     private String title;
+
+    @Enumerated(EnumType.STRING)
     private TagType tagType;
+
     private String description;
 }

@@ -17,11 +17,11 @@ public class CompanyTag extends BaseEntity {
     @Column(name = "companyTagId")
     private Long companyTagId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_id")
     private Tag tag;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
 
