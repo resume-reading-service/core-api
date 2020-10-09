@@ -19,6 +19,7 @@ public class Company extends BaseEntity{
     private Long companyId;
 
     private String name;
+    private String description;
 
     @OneToMany(mappedBy = "company")
     private Set<CompanyTag> companyTags =  new LinkedHashSet<>();

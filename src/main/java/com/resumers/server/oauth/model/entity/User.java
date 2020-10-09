@@ -34,13 +34,20 @@ public class User extends BaseEntity {
     private UserStatusType status;
     private Long level;
 
-    @OrderBy("userCompanyMappingId asc")
+    @OrderBy("userCompanyId asc")
     @OneToMany(mappedBy = "user")
-    private Set<UserCompanyMapping> userCompanyMappings = new LinkedHashSet<>();
+    private Set<UserCompany> userCompanies = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "user")
     private Set<UserResumeLike> userResumeLikes = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "user")
     private Set<UserResumeView> userResumeViews = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<UserSocial> userSocials = new LinkedHashSet<>();
+
+    @OneToOne
+    @JoinColumn(name="user_id")
+    private UserDetail userDetail;
 }
