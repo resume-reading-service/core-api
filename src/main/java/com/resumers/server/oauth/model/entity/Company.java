@@ -21,6 +21,6 @@ public class Company extends BaseEntity{
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company")
     private Set<CompanyTag> companyTags =  new LinkedHashSet<>();
 }
