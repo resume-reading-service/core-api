@@ -4,23 +4,25 @@ import javax.persistence.*;
 
 /**
  * Created by sehajyang
- * DateTime : 2020/10/03
+ * DateTime : 2020/10/09
+ * Descrpition :
  */
 
-@Table
 @Entity
-public class UserCompanyMapping extends BaseEntity{
+@Table(name = "company_tag")
+public class CompanyTag extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "user_company_mapping_id")
-    private Long userCompanyMappingId;
+    @Column(name = "companyTagId")
+    private Long companyTagId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "tag_id")
+    private Tag tag;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
 }

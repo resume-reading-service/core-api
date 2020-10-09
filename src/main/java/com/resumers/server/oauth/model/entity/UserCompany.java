@@ -10,14 +10,20 @@ import javax.persistence.*;
  * Descrpition :
  */
 @Entity
-@Table(name = "user_company_certify")
-public class UserCompanyCertify extends BaseEntity {
+@Table(name = "user_company")
+public class UserCompany extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_company_certify_id")
-    private Long userCompantCertifyId;
+    @Column(name = "user_company_id")
+    private Long userCompanyId;
 
-    private Long companyId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 
     @Enumerated(EnumType.STRING)
     private UserCompanyCertifyStatus userCompanyCertifyStatus;
