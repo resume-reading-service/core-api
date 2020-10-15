@@ -5,22 +5,21 @@ import javax.persistence.*;
 /**
  * Created by sehajyang
  * DateTime : 2020/10/09
- * Description : 유저 관심사 태그 엔티티
  */
-@Entity
-@Table(name = "user_tag")
-public class UserTag {
 
+@Entity
+@Table(name = "user_category")
+public class UserCategory extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_tag_id")
-    private Long userTagId;
+    @Column(name="user_category_id")
+    private Long userCategoryId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="tag_id")
-    private Tag tag;
+    @JoinColumn(name="category_id")
+    private Category category;
 }

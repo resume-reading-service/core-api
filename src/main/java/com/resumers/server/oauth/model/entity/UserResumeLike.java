@@ -7,6 +7,7 @@ import javax.persistence.*;
  * DateTime : 2020/10/09
  */
 
+// FIXME : 상속관계로 수정 필요
 @Entity
 @Table(name = "user_resume_like")
 public class UserResumeLike {
@@ -15,7 +16,7 @@ public class UserResumeLike {
     @Column(name = "user_resume_like_id")
     private Long userResumeLikeId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

@@ -1,5 +1,7 @@
 package com.resumers.server.oauth.model.entity;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  * DateTime : 2020/10/09
  */
 
+// FIXME : 상속관계로 수정 필요
 @Entity
 @Table(name = "user_resume_view")
 public class UserResumeView {
@@ -15,7 +18,7 @@ public class UserResumeView {
     @Column(name = "user_resume_view_id")
     private Long userResumeViewId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
