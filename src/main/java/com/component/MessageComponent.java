@@ -1,10 +1,10 @@
 package com.component;
 
-import com.common.Utils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 /**
  * Created by sehajyang
@@ -23,6 +23,6 @@ public class MessageComponent {
         } catch (Exception e){
             message = "UNDEFINED ERROR";
         }
-        return Utils.isEmpty(message) ? "UNDEFINED ERROR" : message;
+        return StringUtils.isEmpty(message) ? "UNDEFINED ERROR" : message;
     }
 }

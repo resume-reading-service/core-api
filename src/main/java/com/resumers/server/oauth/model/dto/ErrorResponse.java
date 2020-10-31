@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -25,8 +26,8 @@ public class ErrorResponse {
     private String message;
     private LocalDateTime timeStamp;
 
-    public ErrorResponse(Integer statusCode, Map<String, Object> errorAttribute, String message) {
-        this.status = statusCode;
+    public ErrorResponse(int status, Map<String, Object> errorAttribute, String message) {
+        this.status = status;
         this.message = message;
         this.error = (String) errorAttribute.get("error");
         this.timeStamp = new Timestamp(((Date) errorAttribute.get("timestamp")).getTime()).toLocalDateTime();

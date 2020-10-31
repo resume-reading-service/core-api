@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -40,6 +41,6 @@ public class ExceptionHandler implements ErrorController {
 
     @org.springframework.web.bind.annotation.ExceptionHandler(value = CustomException.class)
     public ResponseEntity<ApiResponse<EmptyObject>> customException(WebRequest webRequest, CustomException e) {
-        return ResponseEntity.status(e.getType().getHttpStatusCode()).body(new ApiResponse<>(new ErrorResponse(e.getType().getCode(), getErrorAttribute(webRequest), message.getMessage())));
+        return ResponseEntity.status(e.getType().getHttpStatusCode()).body(new ApiResponse<>(new ErrorResponse(e.getType().getCode(), getErrorAttribute(webRequest), e.getMessage())));
     }
 }
