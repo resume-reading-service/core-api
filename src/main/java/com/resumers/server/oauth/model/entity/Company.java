@@ -1,6 +1,8 @@
 package com.resumers.server.oauth.model.entity;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * Created by sehajyang
@@ -15,4 +17,10 @@ public class Company extends BaseEntity{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "company_id")
     private Long companyId;
+
+    private String name;
+    private String description;
+
+    @OneToMany(mappedBy = "company")
+    private Set<CompanyTag> companyTags =  new LinkedHashSet<>();
 }

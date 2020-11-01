@@ -1,7 +1,7 @@
 package com.resumers.server.oauth.controller;
 
-import com.resumers.oauth.service.SocialService;
-import com.resumers.oauth.service.UserService;
+import com.resumers.server.oauth.service.SocialService;
+import com.resumers.server.oauth.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
