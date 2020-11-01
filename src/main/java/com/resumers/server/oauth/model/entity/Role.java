@@ -1,6 +1,6 @@
 package com.resumers.server.oauth.model.entity;
 
-import com.resumers.server.oauth.enums.TagType;
+import com.resumers.server.oauth.enums.RoleType;
 
 import javax.persistence.*;
 
@@ -11,17 +11,18 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "tag")
-public class Tag {
+@Table(name="role")
+public class Role {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tag_id")
-    private Long TagId;
-
-    private String title;
+    @Column(name="role_id")
+    private Long roleId;
 
     @Enumerated(EnumType.STRING)
-    private TagType tagType;
+    @Column(name = "name")
+    private RoleType roleType;
 
+    @Column(name = "description")
     private String description;
 }

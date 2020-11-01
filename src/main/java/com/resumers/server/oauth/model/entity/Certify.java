@@ -16,7 +16,7 @@ public class Certify extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="certify_id")
+    @Column(name = "certify_id")
     private Long certifyId;
 
     @Enumerated(EnumType.STRING)
@@ -28,7 +28,7 @@ public class Certify extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private CertifiedStatus certifiedStatus;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 

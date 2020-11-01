@@ -1,27 +1,23 @@
 package com.resumers.server.oauth.model.entity;
 
-import com.resumers.server.oauth.enums.TagType;
-
 import javax.persistence.*;
 
 /**
  * Created by sehajyang
  * DateTime : 2020/10/09
- * Descrpition :
  */
 
 @Entity
-@Table(name = "tag")
-public class Tag {
+@Table(name="penalty")
+public class Penalty {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tag_id")
-    private Long TagId;
+    private Long penaltyId;
 
+    @Column(length = 100)
     private String title;
 
-    @Enumerated(EnumType.STRING)
-    private TagType tagType;
-
+    @Column(length = 2000)
     private String description;
 }

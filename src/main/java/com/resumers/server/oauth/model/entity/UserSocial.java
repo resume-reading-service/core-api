@@ -23,7 +23,7 @@ public class UserSocial extends BaseEntity{
     private String socialToken;
     private String email;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 }

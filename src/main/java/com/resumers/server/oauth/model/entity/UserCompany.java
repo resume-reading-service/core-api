@@ -17,18 +17,18 @@ public class UserCompany extends BaseEntity {
     @Column(name = "user_company_id")
     private Long userCompanyId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
 
     @Enumerated(EnumType.STRING)
     private UserCompanyCertifyStatus userCompanyCertifyStatus;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "certify_id")
     private Certify certify;
 }
